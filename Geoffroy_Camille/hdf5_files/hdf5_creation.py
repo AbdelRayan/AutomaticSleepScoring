@@ -1,33 +1,36 @@
 import numpy as np
-import hdf5
+import h5py
 from scipy.stats import mode
 from scipy.io import loadmat
+import os
 
 
-from hdf5_files.EMG_buzsakiMethod import compute_emg_buzsakiMethod
-from hdf5_files.datasets_extraction import psd_multitaper, wei_normalizing, index_W, index_N, index_R, index_1, index_2, index_3, index_4
-from hdf5_files.Artefacts_Detection import removeArtefacts
+from EMG_buzsakiMethod import compute_emg_buzsakiMethod
+from indices_processing import psd_multitaper, wei_normalizing, index_W, index_N, index_R, Index_1, Index_2, Index_3, Index_4
+from Artefacts_Detection import removeArtefacts, artefact_epochs
 
-def getNewFeatures(raw_hpc, raw_pfc, states):
-    """
-    Computes new features from raw data.
+def getNewFeatures(raw_hpc, raw_pfc, states, fs, epoch_length):
+  """
+  Computes new features from raw data.
 
-    Parameters:
-        raw_hpc (numpy.ndarray): The data from the hippocampus.
-        raw_pfc (numpy.ndarray): The data from the prefrontal cortex.
-        states (numpy.ndarray): The sleep states.
+  Parameters:
+      raw_hpc (numpy.ndarray): The data from the hippocampus.
+      raw_pfc (numpy.ndarray): The data from the prefrontal cortex.
+      states (numpy.ndarray): The sleep states.
+      fs (float) : the sampling frequency.
+      epoch_length (int) : the length of an epoch in seconds.
 
-    Returns:
-        new_features (numpy.ndarray): The computed features.
-        mapped_scores (numpy.ndarray): The mapped sleep scores.
+  Returns:
+      new_features (numpy.ndarray): The computed features.
+      mapped_scores (numpy.ndarray): The mapped sleep scores.
 
-    Notes:
-        This function first computes the EMG from the raw data. 
-        It then computes the power spectral density (PSD) in different frequency bands for the raw data. 
-        The PSDs are normalized and smoothed to be used as features. 
-        The function also computes several indices from the PSDs, normalizes and smooths them, and uses them as features. 
-        The function returns a matrix of these features along with the mapped sleep scores.
-    """
+  Notes:
+      This function first computes the EMG from the raw data. 
+      It then computes the power spectral density (PSD) in different frequency bands for the raw data. 
+      The PSDs are normalized and smoothed to be used as features. 
+      The function also computes several indices from the PSDs, normalizes and smooths them, and uses them as features. 
+      The function returns a matrix of these features along with the mapped sleep scores.
+  """
 
   # Getting EMG
   emg_sampling = 5
@@ -47,6 +50,17 @@ def getNewFeatures(raw_hpc, raw_pfc, states):
   reshaped_scores = sleep_scoring[:len(sleep_scoring) // epoch_length * epoch_length].reshape(-1, epoch_length)
   majority_scores = mode(reshaped_scores, axis=1).mode.flatten()
   mapped_scores = np.array(majority_scores)
+
+  #Frequency ranges
+  noise_band = [0,0.5]
+  delta_band = [0.5,5]
+  theta_band = [6,10]
+  sigma_band = [11,17]
+  beta_band = [22,30]
+  gamma_band = [35,45]
+  total_band = [0,30]
+
+  window_length = fs*epoch_length
   # Get powers
   noise = psd_multitaper(np.ravel(raw_hpc), fs, noise_band, window_length)
   delta = psd_multitaper(np.ravel(raw_pfc), fs, delta_band, window_length)
@@ -108,7 +122,7 @@ def getNewFeatures(raw_hpc, raw_pfc, states):
   new_features = np.column_stack((index_w_smoothed, index_r_smoothed, index_n_smoothed, index_1_smoothed, index_2_smoothed, index_3_smoothed, index_4_smoothed, noise_smoothed, theta_smoothed, delta_smoothed))
   return new_features, mapped_scores
 
-def prepare_for_hdf5(recording, fs, files_path):
+def prepare_for_hdf5(recording, fs, files_path, epoch_length):
   """
   Prepares data for HDF5 format.
   
@@ -116,6 +130,7 @@ def prepare_for_hdf5(recording, fs, files_path):
       recording (list): The list containing names of the HPC, PFC, and states data files.
       fs (float) : The sampling frequency.
       files_path (str) : The path that leads to the files.
+      epoch_length (int) : the length of an epoch in seconds.
   
   Returns:
       Features (numpy.ndarray): The computed features from HPC and PFC data. It consists of a list of 10 indices for each epoch.
@@ -131,7 +146,7 @@ def prepare_for_hdf5(recording, fs, files_path):
     if 'states' in i:
       states = i
   recording_name = hpc[:-4]     # Group name 
-  path_to_hpc = path_to_pt5 + "/" + hpc
+  path_to_hpc = files_path + "/" + hpc
   # Prepare data (Load + artefact removal)
   hpc_data = loadmat(path_to_hpc)
   hpc_data = hpc_data['HPC']
@@ -139,27 +154,28 @@ def prepare_for_hdf5(recording, fs, files_path):
   sighpc = removeArtefacts(hpc_data, fs, [9,8], [0.2,0.1])
   hpc_filt = np.ravel(sighpc[0])
   hpc_artefact_indexes = np.ravel(sighpc[1])                 # Get the indexes of epochs containing artefacts
-  pfc_data = loadmat(os.path.join(path_to_pt5, pfc))
+  pfc_data = loadmat(os.path.join(files_path, pfc))
   pfc_data = pfc_data['PFC']
   pfc_data = pfc_data[8*fs:]
   sigpfc = removeArtefacts(pfc_data, fs, [9,8], [0.2,0.1])
   pfc_filt = np.ravel(sigpfc[0])
   pfc_artefact_indexes = np.ravel(sigpfc[1])
 
-  sleep_scoring = loadmat(os.path.join(path_to_pt5, states))
+  sleep_scoring = loadmat(os.path.join(files_path, states))
   states = sleep_scoring['states'][0][7:]
   print(f"len(hpc_data) : {len(hpc_data)}")
   print(f"len(states) : {len(states)}")
 
 
   # Create matrix for specific set of recordings
-  a = getNewFeatures(hpc_filt, pfc_filt, states)
+  a = getNewFeatures(hpc_filt, pfc_filt, states, fs, epoch_length)
   Features = a[0]
   Mapped_scores = a[1]
 
   # Add the artefact epochs to mapped scores
-  hpc_arte_epochs = artefact_epochs(hpc_artefact_indexes)
-  pfc_arte_epochs = artefact_epochs(pfc_artefact_indexes)
+  window_length = fs * epoch_length
+  hpc_arte_epochs = artefact_epochs(hpc_artefact_indexes, window_length)
+  pfc_arte_epochs = artefact_epochs(pfc_artefact_indexes, window_length)
   artefact_indices = np.unique(np.concatenate((hpc_arte_epochs, pfc_arte_epochs)))
   artefact_indices = artefact_indices.astype(int)
   Mapped_scores[artefact_indices] = 0 
@@ -169,13 +185,13 @@ def prepare_for_hdf5(recording, fs, files_path):
   print("##################")
   return(Features, Mapped_scores, recording_name)
 
-def update_hdf5(a, hdf5_path):
+def update_hdf5(a, path_to_hdf5):
   """
   Updates an HDF5 file with the data of a recording (features and mapped scores)/
   
-  Parameters:
-      hdf5_path (str): The path to the HDF5 file to be updated.
+  Parameters:  
       a (tuple): A tuple containing the features, mapped scores, and the recording name.
+      path_to_hdf5 (str): The path to the HDF5 file to be updated.
   
   Notes:
       This function opens the HDF5 file at the given path in append mode.
@@ -185,9 +201,10 @@ def update_hdf5(a, hdf5_path):
       Two datasets, 'Features' and 'Mapped_scores', are created in the group using the data from the input tuple.
   """
   # Add the data to the hdf5 file
-  with h5py.File('C:/Users/camil/Documents/Camille/Donders/CBD/hdf5/Rat6.h5', 'a')  as database:
+  with h5py.File(path_to_hdf5, 'a')  as database:
   # Create group and 2 datasets
-
+    print(path_to_hdf5)
+    print(group_name)
     group = database.create_group(a[2])
     group.attrs['Description features'] = '[index_w_smoothed, index_r_smoothed, index_n_smoothed, index_1_smoothed, index_2_smoothed, index_3_smoothed, index_4_smoothed, noise_smoothed, theta_smoothed, delta_smoothed]'
     group.attrs['Description Mapped_scores'] = '[0: Artefact, 1: Wake, 3: NREM, 4: Intermediate, 5: REM]'
