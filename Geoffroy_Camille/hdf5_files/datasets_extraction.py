@@ -161,7 +161,7 @@ def training_dataset_OS_RGS_CBD(file_path, n_states, n_repeat_states, rat_indice
     return training_dataset, manual_scoring.astype(int)
 
 def dataset_OS_RGS_CBD(file_path, rat_indices_OS, rat_indices_RGS, rat_indices_CBD, states):
-      """
+    """
     Extract a dataset from the OS_RGS_CBD.h5 file.
     
     Parameters : 
