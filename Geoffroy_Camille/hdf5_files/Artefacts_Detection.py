@@ -161,7 +161,7 @@ def removeArtefacts(lfp_sig, originalFreq, amp_thresh, time_win_thresh):
     """
     Removes artefacts from the LFP signal.
 
-    Args:
+    Parameters:
         lfp_sig (numpy.ndarray): The LFP signal.
         originalFreq (float): The sampling frequency.
         amp_thresh (tuple): The amplitude thresholds for detecting artefacts.
@@ -221,24 +221,25 @@ def removeArtefacts(lfp_sig, originalFreq, amp_thresh, time_win_thresh):
 
     return sig_values, artefactInds, timeValues
 
-def artefact_epochs(artefactsIndices, threshold = 0):
+def artefact_epochs(artefactsIndices, window_length, threshold = 0):
     """
     Get the indices of the epochs containing artefacts
 
-    Args:
+    Parameters:
         artefactsIndices (list): the indices of the artefacts in the raw data.
+        window_length (int) : the length of an epoch
         threshold (float, optional) : percentage of artefact necessary for an epoch to be detected as an artefact.
 
     Returns:
         numpy.ndarray : the indices of the epochs containing a percetage of artefacts greater than the threshold.
     """
-  artefactsCountEpochs = artefactsIndices[:len(artefactsIndices)//window_length * window_length].reshape(-1, window_length)
-  artefactsCountEpochs = [np.count_nonzero(el) for el in artefactsCountEpochs]
-  art_percentage_per_epoch = np.ravel([(el/(window_length))*100  for el in artefactsCountEpochs])
-  
-  arte_indices = []
-  for i, el in enumerate(art_percentage_per_epoch):
-    if el > threshold:
-      arte_indices.append(i)
-  arte_indices = np.ravel(arte_indices)
-  return arte_indices
+    artefactsCountEpochs = artefactsIndices[:len(artefactsIndices)//window_length * window_length].reshape(-1, window_length)
+    artefactsCountEpochs = [np.count_nonzero(el) for el in artefactsCountEpochs]
+    art_percentage_per_epoch = np.ravel([(el/(window_length))*100  for el in artefactsCountEpochs])
+    
+    arte_indices = []
+    for i, el in enumerate(art_percentage_per_epoch):
+        if el > threshold:
+            arte_indices.append(i)
+    arte_indices = np.ravel(arte_indices)
+    return arte_indices
