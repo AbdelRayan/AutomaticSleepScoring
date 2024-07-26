@@ -85,26 +85,26 @@ def index_N(delta, sigma, gamma):
   return index_n
 
 def wei_normalizing(data):
-      """
-    Normalizes the input data based on the 10th and 90th percentiles.
+  """
+  Normalizes the input data based on the 10th and 90th percentiles.
 
-    Parameters:
-        data (numpy.ndarray): The input data to be normalized.
+  Parameters:
+      data (numpy.ndarray): The input data to be normalized.
 
-    Returns:
-        numpy.ndarray: The normalized data.
+  Returns:
+      numpy.ndarray: The normalized data.
 
-    Note:
-        This function is based on the normalization used in 
-        Wei, TY., Young, CP., Liu, YT. et al. 
-        Development of a rule-based automatic five-sleep-stage scoring method for rats. 
-        BioMed Eng OnLine 18, 92 (2019). https://doi.org/10.1186/s12938-019-0712-8
-        
-        This function first calculates the 10th and 90th percentiles of the input data. 
-        It then computes the average of the data below the 10th percentile (bottom_avg) and above the 90th percentile (top_avg). 
-        The data is normalized such that bottom_avg maps to 0 and top_avg maps to 1. 
-        Finally, all values below 0.05 are set to 0.05 and all values above 1 are set to 1.
-    """
+  Note:
+      This function is based on the normalization used in 
+      Wei, TY., Young, CP., Liu, YT. et al. 
+      Development of a rule-based automatic five-sleep-stage scoring method for rats. 
+      BioMed Eng OnLine 18, 92 (2019). https://doi.org/10.1186/s12938-019-0712-8
+      
+      This function first calculates the 10th and 90th percentiles of the input data. 
+      It then computes the average of the data below the 10th percentile (bottom_avg) and above the 90th percentile (top_avg). 
+      The data is normalized such that bottom_avg maps to 0 and top_avg maps to 1. 
+      Finally, all values below 0.05 are set to 0.05 and all values above 1 are set to 1.
+  """
   data = np.array(data)
   bottom = data[data <= np.nanpercentile(data, 10, axis=0) ]
   bottom_avg = np.average(bottom)
