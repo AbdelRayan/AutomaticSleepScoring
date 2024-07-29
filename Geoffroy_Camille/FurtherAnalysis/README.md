@@ -1,4 +1,6 @@
 # Get plots on LFP
+To be used to analyse individual or groups of latent states to find possible substates.
+
 This notebook utilizes:
 - 3 files from the training (obsKeys.npz, inferredStates.npz, uniqueStates.npz)
 - 3 files from running the model on a posttrial (obsKeyspt.npz, inferredStatespt.npz, uniqueStatespt.npz)
