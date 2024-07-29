@@ -1,0 +1,86 @@
+/cudamat
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+*.env
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Ignore system and temporary files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.swp
+*~
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore logs and databases
+*.log
+*.sqlite
+*.db
+
+# Ignore compiled binaries and build artifacts
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.exe
+*.out
+*.app
+
+# Ignore environment configuration files
+.env
+.env.local
+.env.*.local
+
+# Ignore node_modules directory for Node.js projects
+node_modules/
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore Gradle and Maven build directories
+/build/
+/bin/
+/target/
+
+# Ignore compiled C++ files
+*.out
+*.o
+
+# Ignore compiled LaTeX files
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf
+
+# Ignore data and media files
+# *.jpg
+# *.jpeg
+# *.png
+*.gif
+*.mp3
+*.mp4
+*.mov
+*.avi
+

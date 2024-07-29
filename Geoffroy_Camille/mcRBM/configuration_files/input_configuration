@@ -1,0 +1,46 @@
+## CONFIGURATION FILE: change here the number of hidden units, the training set file, etc.
+
+[MAIN_PARAMETER_SETTING]
+
+# number of sweeeps through the training dataset
+num_epochs = 10000
+# number of samples in each batch (better if multiple of 8 on GPU)
+batch_size = 1024
+# after these many epochs, update the factor-hidden matrix (wait for visible-factor matrix to converge first)
+startFH = 10
+# start using L1 weight decay on weight matrices after <startwd> epochs
+startwd = 10
+# if doPCD = 0 then use Contrastive Divergence 1, otherwise Persistent Contrastive Divergence 1
+doPCD = 1
+
+
+
+[MODEL_PARAMETER_SETTING]
+# number of factors (columns of visible-factor matrix)
+num_fac = 10
+# number of covariance hidden units
+num_hid_cov = 11
+# number of mean hidden units
+num_hid_mean = 10
+# restrict the number of non-zero values in factor-hidden matrix
+apply_mask = 0
+
+[DATA]
+# training dataset
+#data_file_name = dataNorm.mat
+
+[OPTIMIZER_PARAMETERS]
+# learning rate 
+epsilon = .01
+# L1 weight decay
+weightcost_final = 0.001
+
+[HMC_PARAMETERS]
+# number of leap-frog steps
+hmc_step_nr = 20
+# target rejection rate
+hmc_target_ave_rej = 0.1
+
+[VERBOSITY]
+# if this is one, the program will print the norm of filters and gradients on screen
+verbose = 1

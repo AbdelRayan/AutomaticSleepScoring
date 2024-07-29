@@ -1,0 +1,60 @@
+## CONFIGURATION FILE: define here the experiment's paths and pre-processing steps.
+## MODIFY HERE TO TRAIN A MODEL
+
+[PARAMETERS]
+
+npRandSeed = 124
+npRandState = 123
+
+[EXP_DETAILS]
+
+# set the path to the directory where the data have been stored:
+dsetDir = /teamspace/studios/this_studio/mouse-sleep-analysis/sample_data/input/
+
+# set the name of the dataset to be analysed:
+# it can be a .mat or a .npz file (see sample-data)
+dSetName = TD_OS_Basic_RGS14_Control_W35_N40_R25_total_144000_dataset.npz
+
+# set the name of the states file:
+# it needs to be a .mat file
+statesFile = TD_OS_Basic_RGS14_Control_W35_N40_R25_total_144000_manual_scoring.mat
+
+# set the path to the analysis directory:
+expsDir = /teamspace/studios/this_studio/mouse-sleep-analysis/sample_data/experiments/
+
+# give a name to your experiment:
+expID = TD_OS_Basic_RGS14_Control_W35_N40_R25_total_144000
+
+
+############################################################################################################################
+# DATA PRE-PROCESSING FLAGS:                                                                                                            #
+#            logFlag         	    flag indicating whether to take the log of the data matrix                                          #
+#            meanSubtractionFlag    flag indicating whether to subtract the mean from each feature in the data matrix                   #
+#            scalingFlag		    flag indicating whether to scale the data matrix                                                    #
+#            scaling         	    string indicating what kind of data scaling has to be applied (see options below)                   #
+#            pcaFlag			    flag indicating whether to apply pca to the data                                                    #
+#            whitenFlag			    flag indicating whether to apply whitening to the data                                              #
+#            rescalingFlag		    flag indicating whether to re-scale the data matrix after pre-processing                            #
+#            rescaling			    string indicating what kind of data scaling has to be applied                                       #
+#                                                                                                                                       #
+# SCALING OPTIONS:                                                                                                                      #
+#           'global'                centering and scaling the data matrix in [-5,5]                                                     #
+#           'single'                centering and scaling each column of the data matrix independently in [-5,5]                        #
+#           'baseZeroG'             scaling the data matrix to be in the [0, 1] interval                                                #
+#           'baseZeroS'             scaling each column of the data matrix independently to be in the [0, 10] interval                  #
+#           'baseZeroCol'           centering and scaling each column of the data matrix independently to be in the [0, 1] interval     #
+#           'stdz'                  standardise each column of the data matrix independently                                            #
+#           'minZero'               translate each column of the data matrix to have 0 as the minimum value                             #
+############################################################################################################################
+
+logFlag = false
+meanSubtructionFlag = false
+
+scaleFlag = true
+scaling = single
+
+doPCA = false
+whitenFlag = false
+
+rescaleFlag = false
+rescaling = single
