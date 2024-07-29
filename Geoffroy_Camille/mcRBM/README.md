@@ -59,9 +59,9 @@ Once you have the feature file (`.npz`) ready, update the experiment details in 
 (usually : `/teamspace/studios/this_studio/mouse-sleep-analysis/sample_data/input/`).
 2. Set `dSetName` to the name of the feature file.
 3. Set `statesFile` to the name of the manual scoring file.
-3. Set `expsDir` to the absolute path of output or analysis dir where model weights, inference analysis and plots will be stored.
+4. Set `expsDir` to the absolute path of output or analysis dir where model weights, inference analysis and plots will be stored.
 (usually : `/teamspace/studios/this_studio/mouse-sleep-analysis/sample_data/experiments/`)
-4. Set `expID` to the unique name of your experiment
+5. Set `expID` to the unique name of your experiment
 
 There are some parameters and flags that you can set that are useful for training the model and they are described in the `configuration_files/exp_details` file.
 
@@ -69,8 +69,9 @@ You can also tune parameters described in the `configuration_files/input_configu
 ### Test Dataset
 For the test dataset, you can do the same steps described in the training dataset configuration part, but you have to do these updates in the `exp_details_test` file instead of the `exp_details` file. 
 In addition, you have to do 2 more updates : 
-5. Set `modelDirName` to the name of the directory containing your model.
-6. Set `modelName` to the name of your model.
+
+6. Set `modelDirName` to the name of the directory containing your model.
+7. Set `modelName` to the name of your model.
 
 
 # Training, running and inference
