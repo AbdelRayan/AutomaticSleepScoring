@@ -115,7 +115,32 @@ Run `latent_states_analysis.ipynb`
 You can acces the results in your experiment folder (sample_data/experiments/...).
 
 You can modelize the transition state network by running `state_transition.ipynb` in colab (as it needs to install an old Python version).
-For this, you need to download `latentStates.npz`, `obskeys.npz` and `uniqueStates.npz`. You will find them in the analysis/epoch9999 folder of your experiment folder.
+For this, you need to download `latentStates.npz`, `obsKeys.npz` and `uniqueStates.npz`. You will find them in the analysis/epoch9999 folder of your experiment folder.
+
+`latentStates.npz` consists of:
+- `probabilities` : numpy.darray of the hidden-activation probabilities of each epochs;
+- `binary` : numpy.darray of the binary hidden units. For each epoch i, we have binary[i] = probabilities[i] > 0.5;
+- `inferredStates` : numpy.darray containing the id of the corresponding latent state and the manual score for each epoch;
+- `uniqueStates` : numpy.darray containing for each latent state:
+    - its id (/!\ from 1 to len(uniqueStates));
+    - the number of epochs;
+    - the associated binary code.
+      
+`uniqueStates.npz` consists of:
+- `probabilities` : numpy.ndarray - for each latent state : the hidden-activation probabilities associated with the first epoch linked to this latent state;
+- `uniqueStates` : numpy.darray containing for each latent state:
+    - its id  (/!\ from 0 to len(uniqueStates) - 1);
+    - the number of epochs;
+    - the associated binary code.
+
+`obsKeys.npz` consists of:
+- `obsKeys` - numpy.ndarray - for each epoch :
+    - its id;
+    - its corresponding latent state;
+    - its id;
+    - its manual scoring;
+    - 1\.
+
 
 # Tips 
 
