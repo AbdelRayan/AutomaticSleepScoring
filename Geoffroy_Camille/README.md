@@ -4,7 +4,7 @@ Using 2 raw lfp signals from the hippocampus and prefrontal cortex (resp. HPC an
 
 In order, the repositories used should be:
 
-1- hdf5 Files
+1- hdf5_files
 
 2- mcRBM
 
