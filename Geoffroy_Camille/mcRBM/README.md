@@ -76,7 +76,7 @@ In addition, you have to do 2 more updates :
 
 # Training, running and inference
 
-Now, the model can be trained following which we can do inference analysis to get latent states and classification of the states as well as running the model on other datasets.
+Now, the model can be trained following which we can do inference analysis to get latent states and classification of the states as well as running the model on other datasets. You may need to modify the file paths if you are using the code locally on your machine.
 
 ## Training
 ### Step 1: Train the model
