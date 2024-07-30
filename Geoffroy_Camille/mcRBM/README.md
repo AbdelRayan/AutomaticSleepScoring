@@ -44,8 +44,7 @@ To do that, you can modify 5 variables :
 - **feature_npy_file_name** : the name of your npy file containing the features for each epochs
 - **feature_npz_file_name** : the name of the npz file you want to obtain (usually same name as the npy file)
 - **states_file_name** : the name of your mat file containing the manual scoring for each epoch
-- **timesteps** : the length of your feature file (ie. the number of epochs in your file)
-
+  
 
 ## Configuration
 For the next steps, we differenciate two cases : 
