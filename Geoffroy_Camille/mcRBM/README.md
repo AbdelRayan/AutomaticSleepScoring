@@ -1,7 +1,7 @@
 # Sleep scoring model
 
 ## Prerequisite
-A CUDA-enabled GPU machine.
+A CUDA-enabled GPU machine. This means having NVCC toolbox installed on an NVIDIA GPU.
 
 ## Setup
 
