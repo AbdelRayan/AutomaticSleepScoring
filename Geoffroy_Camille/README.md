@@ -11,3 +11,6 @@ In order, the repositories used should be:
 3- StateInferrence
 
 4- FurtherAnalysis
+
+A trained model on untreated rats from 2 datasets (OS basic and RGS14) is available to use in the mcRBM section if the user only wishes to do automatic sleep scoring.
+This repository can also be used to train a new model and look for new latent states.
