@@ -165,10 +165,11 @@ def removeArtefacts(lfp_sig, originalFreq, amp_thresh, time_win_thresh):
         lfp_sig (numpy.ndarray): The LFP signal.
         originalFreq (float): The sampling frequency.
         amp_thresh (tuple): The amplitude thresholds for detecting artefacts.
-        The first one corresponds to the threshold for the absolute value of the z-scored signal.
-        The second one corresponds to the threshold to the absolute difference between a value and its predecessor of the z-scored signal.
-        time_win_thresh (tuple): The time window that will be set to zero before and after the detected artefact. 
-
+                            The first one corresponds to the threshold for the absolute value of the z-scored signal.
+                            The second one corresponds to the threshold to the absolute difference between a value and its predecessor of the z-scored signal.
+        time_win_thresh (tuple): The time windows that will be set to zero before and after the detected artefacts. 
+                                 The first one corresponds to the window for the absolute value of the z-scored signal.
+                                 The second one corresponds to the window for the absolute difference between a value and its predecessor of the z-scored signal.
     Returns:
         numpy.ndarray: The corrected LFP signal.
         numpy.ndarray: The indices of the artefacts.
