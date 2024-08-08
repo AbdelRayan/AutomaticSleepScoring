@@ -22,8 +22,7 @@ To obtain the desired features, we first compute the mean spectral power of the 
 - $`\gamma`$ : [35; 45] Hz;
   
 as well as:
-- $`EMG`$ : mean value of the EMG;
-- $\sum E E G$ : $\delta + \theta + \sigma + \beta + \gamma$.
+- $`EMG`$ : mean value of the EMG.
 
 From these values, we compute the following features for each 2-second epoch:
  - Index_W: $\frac{E M G^2 \cdot \gamma}{\theta}$
