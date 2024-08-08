@@ -6,7 +6,7 @@ import os
 
 
 from EMG_buzsakiMethod import compute_emg_buzsakiMethod
-from indices_processing import psd_multitaper, wei_normalizing, index_W, index_N, index_R, Index_1, Index_2, Index_3, Index_4
+from computing_features import psd_multitaper, wei_normalizing, index_W, index_N, index_R, Index_1, Index_2, Index_3, Index_4
 from Artefacts_Detection import removeArtefacts, artefact_epochs
 
 def getNewFeatures(raw_hpc, raw_pfc, states, fs, epoch_length):
