@@ -21,3 +21,12 @@ This notebook utilizes:
 When running the notebook, the user will be able to select a latent states to view it on the raw signals - with different colors depending on the manual score of the epoch.
 An interactive plot has been implemented for better visualisation.
 The latent state should be selected by looking at the boxplots created when running the model.
+
+# Hypnodensity graphs
+To be used to obtain hypnodensity plots along with the manual hypnogram
+
+This notebook utilizes:
+- 3 files from the training (obsKeys.npz, inferredStates.npz, uniqueStates.npz)
+- 3 files from running the model on a posttrial (obsKeyspt.npz, inferredStatespt.npz, uniqueStatespt.npz)
+
+Using this notebook will first plot a hypnodensity graph for the full post trial, colouring in different colours the proportions of true Wake, NREM or REM in the current latent state. Zoomed in plots on target regions can then be performed.
