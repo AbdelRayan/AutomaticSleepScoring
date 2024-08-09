@@ -23,7 +23,7 @@ An interactive plot has been implemented for better visualisation.
 The latent state should be selected by looking at the boxplots created when running the model.
 
 # Hypnodensity graphs
-To be used to obtain hypnodensity plots along with the manual hypnogram
+To be used to obtain hypnodensity plots along with the manual hypnogram.
 
 This notebook utilizes:
 - 3 files from the training (obsKeys.npz, inferredStates.npz, uniqueStates.npz)
