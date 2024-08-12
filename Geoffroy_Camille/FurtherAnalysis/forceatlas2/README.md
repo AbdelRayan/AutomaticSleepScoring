@@ -1,3 +1,7 @@
+This repository is from [https://github.com/bhargavchippada/forceatlas2](https://github.com/bhargavchippada/forceatlas2.git)
+A simple modification was done in forceatlas2.py - the following line: "M = networkx.to_scipy_sparse_matrix(G, dtype='f', format='lil', weight=weight_attr)" was replaced by : "M = networkx.to_scipy_sparse_array(G, dtype='f', format='lil', weight=weight_attr)".
+
+
 ## ForceAtlas2 for Python
 
 A port of Gephi's Force Atlas 2 layout algorithm to Python 2 and Python 3 (with a wrapper for NetworkX and igraph). This is the fastest python implementation available with most of the features complete. It also supports Barnes Hut approximation for maximum speedup.
