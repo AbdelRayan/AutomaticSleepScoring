@@ -35,7 +35,7 @@ Using this notebook will first plot a hypnodensity graph for the full post trial
 
 
 # Latent states reduction
-In addition to 100 latent states being too much, many latent states contain very few epochs. This notebook is the exploration of one way of reducing the number of latent states. 
+In addition to 100 latent states being too much, many latent states contain very few epochs. This notebook explores a way of reducing the number of latent states. 
 
 This notebook utilizes:
 - 3 files from the training (obsKeys.npz, inferredStates.npz, uniqueStates.npz) (MAIN)
