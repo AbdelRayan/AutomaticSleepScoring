@@ -1,5 +1,9 @@
 This repository is from [https://github.com/bhargavchippada/forceatlas2](https://github.com/bhargavchippada/forceatlas2.git)
-A simple modification was done in forceatlas2.py - the following line: "M = networkx.to_scipy_sparse_matrix(G, dtype='f', format='lil', weight=weight_attr)" was replaced by : "M = networkx.to_scipy_sparse_array(G, dtype='f', format='lil', weight=weight_attr)".
+A simple modification was done in forceatlas2.py - the following line: 
+
+`M = networkx.to_scipy_sparse_matrix(G, dtype='f', format='lil', weight=weight_attr)` was replaced by : 
+
+`M = networkx.to_scipy_sparse_array(G, dtype='f', format='lil', weight=weight_attr)`.
 
 
 ## ForceAtlas2 for Python
