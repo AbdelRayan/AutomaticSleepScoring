@@ -48,3 +48,20 @@ You can then generate boxplot comparing the values of each features between the 
 To go further:
 You can upload the optional data mentionned above to plot these groups of latent states on a post trial's raw data with zooms. (Color coded: Greys=Wake, Blues=NREM, Reds=REM).
 
+# Latent states clusterization
+This notebook explores another way of reducing the number of latent states. 
+
+This notebook utilizes:
+- 3 files from running the model on a temporally ordered dataset (obsKeys.npz, inferredStates.npz, uniqueStates.npz),
+- the temporally ordered dataset fed to the model,
+- an array with the length of each posttrial.
+
+In this notebook, you will be able to cluster the latent states based on the epochs they are most often close to.
+You can vizualise (before and after clusterization) the state transition graphs, the histogram of the number of epoch per latent state, confidence matrices,  as well as hypnograms for a specific posttrial.
+
+# State transition
+This notebook displays the latent state transition graph. 
+
+Thus notebook utilizes:
+- 3 files from running the model on a temporally ordered dataset (obsKeys.npz, inferredStates.npz, uniqueStates.npz),
+- an array with the length of each posttrial.
