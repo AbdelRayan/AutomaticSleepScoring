@@ -56,11 +56,11 @@ This notebook utilizes:
 - the temporally ordered dataset fed to the model,
 - an array with the length of each posttrial.
 
-In this notebook, you will be able to cluster the latent states based on the epochs they are most often close to.
+In this notebook, you will be able to cluster the latent states based on the epochs they are most often close to (time-wise).
 You can vizualise (before and after clusterization) the state transition graphs, the histogram of the number of epoch per latent state, confidence matrices,  as well as hypnograms for a specific posttrial.
 
 # State transition
-This notebook displays the latent state transition graph. 
+This notebook displays the latent state transition graph. Bear in mind that state transitions only make sense if the epochs are ordered with regards to time.
 
 Thus notebook utilizes:
 - 3 files from running the model on a temporally ordered dataset (obsKeys.npz, inferredStates.npz, uniqueStates.npz),
