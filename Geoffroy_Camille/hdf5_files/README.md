@@ -95,3 +95,9 @@ Therefore, if you don't want all states in the dataset, it will take longer to c
 The last function `posttrial_OS_RGS_CBD` allows you to create a dataset consisting of only one posttrial of a rat from OS_Basic, RGS14 or CBD.
 You can select the posttrial as well as the states.
 The result will be ordered in time.
+
+# NewFeatures
+This is an analysis notebook that is not required for running the pipeline. Running it will show how the spectral powers are computed per frequency band, how they correlate with different sleep states in the manual scoring and how one can infer formulas as they did in the Wei 2019 biomed eng paper to create features that discriminate best between the 3 main sleep states. The 'new' features are the ones we created, inspired by Wei. 
+
+This notebook will compare the new features to Wei's and show plots of their performance.
+ps. computing the powers is not instantaneous. Expect about 2 min per frequency band for a 3h signal.
