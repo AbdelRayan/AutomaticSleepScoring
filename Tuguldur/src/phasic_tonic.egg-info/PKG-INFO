@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: phasic_tonic
+Version: 0.0.1.dev13
+Summary: Package for phasic/tonic REM analysis
+Author-email: Tuguldur Gerelmaa <animus030@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib>=3.8.4
+Requires-Dist: mne>=1.7.1
+Requires-Dist: neurodsp>=2.2.1
+Requires-Dist: numpy>=1.26.4
+Requires-Dist: pandas>=2.2.2
+Requires-Dist: pynapple>=0.6.6
+Requires-Dist: scipy>=1.14.0
+Requires-Dist: tqdm>=4.66.4
+Requires-Dist: yasa>=0.6.5
+Provides-Extra: docs
+Requires-Dist: mkdocs; extra == "docs"
+Requires-Dist: mkdocstrings[python]; extra == "docs"
+Requires-Dist: mkdocs_section_index; extra == "docs"
+Requires-Dist: mkdocs_gen_files; extra == "docs"
+Requires-Dist: mkdocs_literate_nav; extra == "docs"
+Requires-Dist: mkdocs-gallery; extra == "docs"
+Requires-Dist: pillow; extra == "docs"
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pydocstyle; extra == "dev"
+
+# Phasic-Tonic
+## Installation
+
+Installing with [conda](https://docs.conda.io/en/latest/) environment:
+
+``` {.sourceCode .shell}
+$ conda create --name phasic_tonic pip python=3.12
+$ conda activate phasic_tonic
+$ # clone the repository
+$ git clone https://github.com/8Nero/phasic_tonic.git
+$ cd phasic_tonic
+$ # Install in editable mode with `-e` or, equivalently, `--editable`
+$ pip install -e .
+```

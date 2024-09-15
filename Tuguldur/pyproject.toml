@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phasic_tonic"
+dynamic = ["version"]
+requires-python = ">=3.12"
+authors = [
+  { name="Tuguldur Gerelmaa", email="animus030@gmail.com" },
+]
+description = "Package for phasic/tonic REM analysis"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "matplotlib >= 3.8.4",
+    "mne >= 1.7.1",
+    "neurodsp >= 2.2.1",
+    "numpy >= 1.26.4",
+    "pandas >= 2.2.2",
+    "pynapple >= 0.6.6",
+    "scipy >= 1.14.0",
+    "tqdm >= 4.66.4",
+    "yasa >= 0.6.5",
+]
+
+[project.optional-dependencies]
+docs = [
+    'mkdocs',
+    'mkdocstrings[python]',
+    'mkdocs_section_index',
+    'mkdocs_gen_files',
+    'mkdocs_literate_nav',
+    'mkdocs-gallery',
+    'pillow'
+]
+dev = [
+    "black",                        # Code formatter
+    "isort",                        # Import sorter
+    "pytest",                       # Testing framework
+    "flake8",                       # Code linter
+    "pytest-cov",                   # Test coverage plugin for pytest
+    "pydocstyle",                    # Docstrings linter
+]
+
+[tool.setuptools_scm]
+write_to = "src/phasic_tonic/version.py"
+version_scheme = 'python-simplified-semver'
+local_scheme = 'no-local-version'
+
+[tool.black]
+exclude = '/version\.py$'
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:"    # Exclude from coverage
+]
+
+[tool.pydocstyle]
+convention = "numpy"                   # Convention for linting (numpy, google, pep257)
+match = "^(?!version\\.py$).*\\.py$"   # This matches everything that ends with .py, except for version.py
