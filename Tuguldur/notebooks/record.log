@@ -1,0 +1,83 @@
+[15:48:11] [runtime_logger:        logger_setup]: Runtime log started.
+[15:48:11] [runtime_logger:        logger_setup]: Logging to file record.log
+[15:48:11] [DatasetLoader:       load_datasets]: STARTED: Loading the dataset CBD.
+[15:48:11] [DatasetLoader:       load_datasets]: FINISHED: Loading the dataset CBD.
+[15:48:11] [DatasetLoader:       load_datasets]: Number of files 170.
+[15:48:11] [DatasetLoader:       load_datasets]: STARTED: Loading the dataset RGS.
+[15:48:11] [DatasetLoader:       load_datasets]: FINISHED: Loading the dataset RGS.
+[15:48:11] [DatasetLoader:       load_datasets]: Number of files 329.
+[15:48:11] [DatasetLoader:       load_datasets]: STARTED: Loading the dataset OS.
+[15:48:11] [DatasetLoader:       load_datasets]: FINISHED: Loading the dataset OS.
+[15:48:11] [DatasetLoader:       load_datasets]: Number of files 539.
+[15:48:11] [1031860118:            <module>]: Loading: Rat5_SD8_HC_0_posttrial3
+[15:48:42] [1031860118:            <module>]: Loading: Rat5_SD8_HC_0_posttrial3
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (17 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 14
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (14 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 12
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (27 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 23
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (30 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 24
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (366 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 307
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (239 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 209
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (341 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 291
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (162 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:43] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:43] [3033032585:      compute_cycles]: 133
+[15:48:43] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:43] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (11 cycles 1 metrics) 
+[15:48:43] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:44] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:44] [3033032585:      compute_cycles]: 8
+[15:48:44] [3033032585:      compute_cycles]: Detected cycles before extraction:
+[15:48:44] [3033032585:      compute_cycles]: <class 'emd.cycles.Cycles'> (324 cycles 1 metrics) 
+[15:48:44] [3033032585:      compute_cycles]: 
+Finished computing the cycles metrics
+
+[15:48:44] [3033032585:      compute_cycles]: Cycles after extraction:
+[15:48:44] [3033032585:      compute_cycles]: 280

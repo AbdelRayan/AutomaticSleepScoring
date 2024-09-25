@@ -276,11 +276,11 @@ class PhasicTonic:
         ax.spines["left"].set_visible(False)
         ax.axes.get_xaxis().set_visible(False)
         ax.axes.get_yaxis().set_visible(False)
-        
+
 
 #%% Loading
-lfp = loadmat("C:/Users/animu/phasic_tonic/data/example/Rat3_SD4_OD_4_posttrial5_lfp.mat")['HPC'].flatten()
-sleep = loadmat("C:/Users/animu/phasic_tonic/data/example/Rat3_SD4_OD_4_posttrial5_states.mat")['states'].flatten()
+lfp = loadmat("C:/Users/animu/phasic_tonic/data/example/HPC_100_CH15.continuous_merged.mat")['HPC'].flatten()
+sleep = loadmat("C:/Users/animu/phasic_tonic/data/example/post_trial5_2017-11-16_14-46-12-states.mat")['states'].flatten()
 
 lfp = preprocess(lfp, 5)
 #%% Plotting
@@ -290,8 +290,6 @@ g.plot()
 df = g.compute_stats()
 df
 
-from phasic_tonic.detect_phasic import detect
 
-detect_phasic()
         
         
