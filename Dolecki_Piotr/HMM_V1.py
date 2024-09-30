@@ -1,13 +1,14 @@
-# @title HMM Code (Monday 30-09-2024) - Perfect replication
-# install hmmlearn first time running on colab : (line below)
+# BEST VERSION SO FAR
 
-#!pip install hmmlearn
+# install hmmlearn first time running on colab : (line below)
+!pip install hmmlearn
 
 import numpy as np
 from hmmlearn import hmm
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
+# DIFFERENT SEQUENCES TO TRY ON
 #original_sequence = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5] * 5  # Example long sequence
 #original_sequence = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 1, 1, 2, 2, 3, 3, 4, 4, 5, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 1, 1, 2, 2, 3, 4, 4, 5] * 5
 #original_sequence = [1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 3, 3, 5, 5, 5, 3, 2, 2, 1, 1, 2, 3, 3, 4, 4, 4, 4, 3, 3, 5, 5, 5, 3, 2, 1, 1, 2, 3, 3, 4, 3, 3, 5, 5, 5, 5, 3, 2, 1, 2, 3, 3, 3, 5, 5, 5, 5, 2, 1, 1, 2, 3, 5, 5, 5, 5, 3, 2, 1, 1, 1, 1] * 3 
