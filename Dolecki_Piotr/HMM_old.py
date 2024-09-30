@@ -1,6 +1,5 @@
-# @title HMM Code (Monday 30-09-2024) - learning/predicting
-# This program uses a random sequence with a somehow repeating pattern 
-
+# THIS IS AN OLDER VERSION
+# less accurate and a little bit different method
 # install hmmlearn first time running on colab : (line below)
 !pip install hmmlearn
 
