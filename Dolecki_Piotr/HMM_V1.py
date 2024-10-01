@@ -50,10 +50,19 @@ for _ in range(iterations):
 predicted_sequence = model.predict(observed_counts)
 predicted_sequence = predicted_sequence + 1  # adjust back to 1-based indexing
 
+# REDUCTION OF LATENT STATES
+reduced_sequence = [predicted_sequence[0]]
+for i in range(1, len(predicted_sequence)):
+    if predicted_sequence[i] != predicted_sequence[i - 1]:
+        reduced_sequence.append(predicted_sequence[i])
+
 # ACCURACY (%)
 accuracy = accuracy_score(original_sequence, predicted_sequence)
 print(f"Original Sequence: {original_sequence}")
 print(f"Predicted Sequence: {predicted_sequence}")
+print("Reduced Sequence:", reduced_sequence)
+print(f"Original sequence length: {len(original_sequence)}")
+print(f"Reduced sequence length: {len(reduced_sequence)}")
 print(f"Accuracy: {accuracy * 100:.2f}%")
 
 # FIGURES
