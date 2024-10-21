@@ -6,18 +6,18 @@ This repository contains the scripts and methods used for phasic/tonic analysis 
 - **Phasic/Tonic Detection**: Identify REM sleep substages (phasic and tonic).
 - **Statistical Analysis**: Scripts used for analysing sleep composition and phasic/tonic states.
 
-# Instructions
-## Setting up the datasets
+## Guide for the phasic/tonic analysis pipeline
+### Setting up the datasets
 Using `DatasetLoader` will require few modifications to the original datasets. 
-1. **For working with CBD dataset**: Replace `overview.csv` with the [modified version](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/data/overview.csv)
+1. **For working with CBD dataset**: Replace `overview.csv` with the [modified version](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/data/overview.csv) in the CBD folder.
 2. **For working with OS basic dataset** Use [this](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/data/nameOSbasic.ipynb) script for renaming
 the folders into proper form.
 
 ### Loading Datasets
 
-The `DatasetLoader` class is tailored for datasets from our lab. It requires a path to a configuration file, which defines the structure of the datasets. The configuration file includes paths to different recordings and the naming patterns for various signals (e.g., LFP of HPC and PFC, hypnogram files, etc.).
+Initializing `DatasetLoader` requires a path to a configuration file. The configuration file includes paths to datasets and the naming patterns for: posttrial folder, LFP of HPC and PFC, hypnogram files, etc.).
 
-#### Example Configuration File
+#### Configuration File
 
 ```yaml
 CBD:
@@ -40,24 +40,13 @@ OS:
   states: "*states*"
 ```
 
-The user must modify the `path` fields to point to their local dataset directories.
+Change the `path` fields to point to their local dataset directories.
+If you're working on a single dataset then you can remove the other fields.
 
-#### Usage of `DatasetLoader`
+### Using DatasetLoader
+Check out this [tutorial](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/notebooks/tutorial_dataset_loader.ipynb) on how to use DatasetLoader to iterate through multiple datasets.
 
-Once the configuration file is set up, the `DatasetLoader` can be used to load the datasets and iterate through the recordings. It functions similarly to PyTorch’s `DataFolder`:
+### Detecting Phasic/Tonic states
+Refer to this [repo](https://github.com/8Nero/phasic_tonic) for documentations on detecting phasic and tonic states.
 
-```python
-from phasic_tonic import DatasetLoader
-
-# Initialize the loader with the path to your config file
-loader = DatasetLoader(config_path='path/to/your/config.yaml')
-
-# Loop through the dataset recordings
-for recording in loader:
-    # Access data (LFP, hypnogram, etc.)
-    lfp_hpc = recording['LFP_HPC']
-    lfp_pfc = recording['LFP_PFC']
-    hypnogram = recording['hypnogram']
-    
-    # Apply your analysis or further processing here
-```
+This [tutorial](https://phasic-tonic.readthedocs.io/en/latest/generated/gallery/tutorial_detect_phasic/) covers how to use `detect_phasic` function to get phasic REM indices.
