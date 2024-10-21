@@ -12,6 +12,7 @@ Using `DatasetLoader` will require few modifications to the original datasets.
 1. **For working with CBD dataset**: Replace `overview.csv` with the [modified version](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/data/overview.csv) in the CBD folder.
 2. **For working with OS basic dataset** Use [this](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/data/nameOSbasic.ipynb) script for renaming
 the folders into proper form.
+3. **For using the DatasetLoader** Make sure to give the path to [this config file](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/data/dataset_loading.yaml) when initializing DatasetLoader.
 
 ### Loading Datasets
 
