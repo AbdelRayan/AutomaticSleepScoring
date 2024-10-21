@@ -59,7 +59,7 @@ class DatasetLoader:
         return len(self.combined_mapped)
 
     def __str__(self):
-        return f"DatasetLoader contains: {len(self.patterns)} datasets. Total loaded recordings: {len(self.combined_mapped)}"
+        return f"Total loaded recordings: {len(self.combined_mapped)}"
 
 
 def process_directory(root, dirs, patterns, name_func):
