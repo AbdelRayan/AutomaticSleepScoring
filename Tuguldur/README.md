@@ -89,3 +89,4 @@ Refer to this [repo](https://github.com/8Nero/phasic_tonic) for documentations o
 This [tutorial](https://phasic-tonic.readthedocs.io/en/latest/generated/gallery/tutorial_detect_phasic/) covers how to use `detect_phasic` function to get phasic REM indices.
 
 ### Sleep composition analysis notebooks
+`sleep_analysis` folder in `notebooks` contain the sleep composition analysis scripts. Refer to this [documentation](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/notebooks/sleep_analysis/pipeline_documentation.docx.pdf) for the outputs of the scripts.
