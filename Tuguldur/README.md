@@ -60,10 +60,15 @@ For example, "Rat5_SD8_HC_0_posttrial3" would mean recording of a Rat number 5, 
 
 This [helper module](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/pipeline/helper.py) contains `get_metadata` that takes a string like "Rat5_SD8_HC_0_posttrial3" and returns dictionary of metadatas.
 
-**Partitioning**
+### Partitioning
 In the datasets, post-trial 1 to 4 recordings are 45 minutes long, whereas post-trial 5 recording is 180 minutes. 
 These post-trial 5 recordings can be further partioned into 4 segments, each 45 minutes long. 
 In that case, we refer its trial number as 5.1, or 5.4 depending on which segment.
+
+I've used [this script](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/notebooks/old/build_dataset.ipynb)
+for partitioning and extracting only REM epochs from the datasets.
+
+`partition_to_4` function in `pipeline.helper` module also segments LFP and Hypnogram arrays into 4 parts. 
 
 **Formatting tables**
 
@@ -82,3 +87,5 @@ For example:
 Refer to this [repo](https://github.com/8Nero/phasic_tonic) for documentations on detecting phasic and tonic states.
 
 This [tutorial](https://phasic-tonic.readthedocs.io/en/latest/generated/gallery/tutorial_detect_phasic/) covers how to use `detect_phasic` function to get phasic REM indices.
+
+### Sleep composition analysis notebooks
