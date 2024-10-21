@@ -57,7 +57,26 @@ For treatment values:
 - 4 refers to OS basic
   
 For example, "Rat5_SD8_HC_0_posttrial3" would mean recording of a Rat number 5, Study Day 8, Home Cage, Negative treatment and post-trial number 5.
+
 This [helper module](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/pipeline/helper.py) contains `get_metadata` that takes a string like "Rat5_SD8_HC_0_posttrial3" and returns dictionary of metadatas.
+
+**Partitioning**
+In the datasets, post-trial 1 to 4 recordings are 45 minutes long, whereas post-trial 5 recording is 180 minutes. 
+These post-trial 5 recordings can be further partioned into 4 segments, each 45 minutes long. 
+In that case, we refer its trial number as 5.1, or 5.4 depending on which segment.
+
+**Formatting tables**
+
+We can use this naming scheme, to make tables.
+
+For example:
+| rat_id | study_day | condition | treatment | trial_num | state  | duration |
+|--------|-----------|-----------|-----------|-----------|--------|----------|
+| 2      | 2         | OR        | 0         | 1         | phasic | 0.992    |
+| 2      | 4         | OR        | 0         | 2         | phasic | 1.998    |
+| 1      | 4         | HC        | 1         | 3         | phasic | 2.048    |
+| 2      | 2         | CON       | 4         | 4         | phasic | 1.586    |
+| 4      | 2         | HC        | 4         | 5         | tonic  | 36.996   |
 
 ### Detecting Phasic/Tonic states
 Refer to this [repo](https://github.com/8Nero/phasic_tonic) for documentations on detecting phasic and tonic states.
