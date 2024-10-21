@@ -47,6 +47,18 @@ If you're working on a single dataset then you can remove the other fields.
 ### Using DatasetLoader
 Check out this [tutorial](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/notebooks/tutorial_dataset_loader.ipynb) on how to use DatasetLoader to iterate through multiple datasets.
 
+### Naming
+The naming scheme used here is: Rat ID, Study Day, Behaviour/Condition, Treatment, Trial number separated by underscores.
+For treatment values:
+- 0 refers to Negative treatment in CBD
+- 1 refers to Positive treatment in CBD
+- 2 refers to Negative treatment in RGS
+- 3 refers to Positive treatment in RGS
+- 4 refers to OS basic
+  
+For example, "Rat5_SD8_HC_0_posttrial3" would mean recording of a Rat number 5, Study Day 8, Home Cage, Negative treatment and post-trial number 5.
+This [helper module](https://github.com/AbdelRayan/AutomaticSleepScoring/blob/main/Tuguldur/pipeline/helper.py) contains `get_metadata` that takes a string like "Rat5_SD8_HC_0_posttrial3" and returns dictionary of metadatas.
+
 ### Detecting Phasic/Tonic states
 Refer to this [repo](https://github.com/8Nero/phasic_tonic) for documentations on detecting phasic and tonic states.
 
