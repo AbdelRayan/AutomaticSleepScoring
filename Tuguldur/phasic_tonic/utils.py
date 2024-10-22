@@ -1,6 +1,5 @@
 import numpy as np
 
-import yasa
 from mne.filter import resample
 
 import logging
