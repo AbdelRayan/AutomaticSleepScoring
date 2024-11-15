@@ -89,9 +89,11 @@ def get_rem_epochs(eeg: np.ndarray, hypno: np.ndarray, fs: float, min_dur: float
     ------
     ValueError
         If no REM epochs greater than min_dur are found.
-    """
-    rem_seq = get_sequences(np.where(hypno == 5)[0])
-    rem_idx = [(start * fs, (end + 1) * fs) for start, end in rem_seq if (end - start) > min_dur]
+    """    
+    rem_seq = get_sequences(np.where(hypno == 5)[0])  # Assuming 5 represents REM sleep
+    # Select only REM epochs above min_dur
+    rem_seq = [(start, end) for start, end in rem_seq if (end - start) > min_dur] 
+    rem_idx = [(start * fs, (end + 1) * fs) for start, end in rem_seq]
    
     if not rem_idx:
         raise ValueError("No REM epochs greater than min_dur.")
