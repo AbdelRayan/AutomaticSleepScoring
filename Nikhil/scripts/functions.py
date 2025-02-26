@@ -18,41 +18,43 @@ def load_mat_data(path_to_data, file_name, states_file, table_name="PFClfpCleane
     return data, states
 
 
-# extract first nrem epochs from the sleep-scoring states file
-def get_first_NREM_epoch(arr, start):
+# extract first epochs from the sleep-scoring states file
+def get_first_sleep_state_epoch(arr, start, sleep_state):
     start_index = None
     for i in range(start, len(arr)):
-        if arr[i] == 3:
+        if arr[i] == sleep_state:
             if start_index is None:
                 start_index = i
-        elif arr[i] != 3 and start_index is not None:
+        elif arr[i] != sleep_state and start_index is not None:
             return (start_index, i - 1, i)
 
     return (start_index, len(arr) - 1, len(arr)) if start_index is not None else None
 
 
-# extract all nrem epochs from the sleep-scoring states file
-# Uses get_first_NREM_epoch() function
-def get_all_NREM_epochs(arr):
-    nrem_epochs = []
+# extract all epochs from the sleep-scoring states file
+# Uses get_first_sleep_state_epoch() function
+def get_sleep_state_epochs(arr, sleep_state):
+    epochs = []
     next_start = 0
     while next_start < len(arr) - 1:
-        indices = get_first_NREM_epoch(arr, next_start)
+        indices = get_first_sleep_state_epoch(arr, next_start, sleep_state)
         if indices == None:
             break
         start, end, next_start = indices
         if end - start <= 30:
             continue
-        nrem_epochs.append([start, end])
-    return nrem_epochs
+        epochs.append([start, end])
+    return epochs
 
 
 # Concatenating all the NREM epochs and filtering on the Delta band (0.1-4 Hz)
-def get_nrem_filtered(pfc_data, nrem_epochs, fs=2500, filter_type="iir"):
+def get_nrem_filtered(data, nrem_epochs, fs=2500, filter_type="iir"):
+    if nrem_epochs.size == 0:
+        return [], []
     nrem_data = []
     for start, end in nrem_epochs:
-        pfc_data_part = pfc_data[start * fs : end * fs]
-        nrem_data.extend(pfc_data_part)
+        data_part = data[start * fs : end * fs]
+        nrem_data.extend(data_part)
     nrem_data = np.array(nrem_data)
     if filter_type == "iir":
         nrem_filtered_data = filter_signal(nrem_data, fs, "bandpass", (0.1, 4), n_cycles=3, filter_type="iir", butterworth_order=6, remove_edges=False)
