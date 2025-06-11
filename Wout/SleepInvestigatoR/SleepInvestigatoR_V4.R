@@ -2159,7 +2159,7 @@ SleepInvestigatoR <- function(FileNames, file.type = "csv", epoch.size = 4, max.
       dat.byTotal <<- dat.byTotal
       
       #write.table(dat.byTotal, file = sprintf("%s_byTotal.tsv", save.name), row.names = FALSE, sep = "\t")
-      write.xlsx(dat.byTotal, file = paste0(save.name, "_byTotal.xlsx"))
+      write.xlsx(dat.byTotal, file = paste0(save.name, "SleepInvestigatoR_output_table.xlsx"))
     } else if (byTotal == FALSE && !is.null(byBlocks)){
       
       dat.byBlocks <<- dat.byBlocks
