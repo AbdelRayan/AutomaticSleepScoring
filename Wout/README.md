@@ -2,7 +2,6 @@
 
 ## Preprocessing
 - **Performed by:** `preprocessing_sleep_sequences.R`
-- **Processing script:**
   - **Input File:**  
     `string_analysis_hypno_latencies_tonic_phasic.xlsx`
   - **Functionality:**
@@ -16,7 +15,7 @@
   - Location of the preprocessing script's output folder.
   - Update the filepath in the `SleepInvestigatoR` script.
 - **Usage:**
-  - Run the `SleepInvestigatoR` function in RStudio to initialize the variable.
+  - Run the `SleepInvestigatoR` function in preferred R environment to initialize the function as a variable.
   - Afterwards, call `SleepInvestigatoR` with the input on the next page of this document.
     - Set the `save_name` input variable as the desired output folder path.
   - `SleepInvestigatoR` processes each file and compiles a table of features.
@@ -52,5 +51,7 @@
   - Once for Phasic, Tonic, and Intermediate sequences.
 - Filepaths in the scripts need to be updated accordingly.
 
-# Flowchart showing the data path
+# Flowchart dataflow
 ![SleepInvestigatoR Pipeline](code_guide_flowchart.png)
+
+*Flowchart illustrating the data flow and script execution order. Blue elements represent input folders or files, while yellow elements denote scripts. The branches correspond to different analyses: the left branch shows first-order Markov chains, the middle represents the SleepInvestigatoR analysis, and the right branch depicts second-order Markov chains.*
