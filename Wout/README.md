@@ -89,15 +89,15 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
 
 ## Markov Chain Analysis
 
-### Input File
-- `string_analysis_hypno_latencies_tonic_phasic.xlsx`
+- **Input File:**
+  - `string_analysis_hypno_latencies_tonic_phasic.xlsx`
 
-### Scripts
-- `First-order_markov_chain.ipynb`
-- `Second-order_markov_chain.ipynb`
+- **Performed by:**
+  - `First-order_markov_chain.ipynb`
+  - `Second-order_markov_chain.ipynb`
 
-### Processing
-- Each script reads the input file twice:
-  - Once for REM sequences.
-  - Once for Phasic, Tonic, and Intermediate sequences.
-    - Filepaths in the scripts need to be updated accordingly.
+- **Processing**
+  - Each script reads the input file twice:
+    - Once for REM sequences.
+    - Once for Phasic, Tonic, and Intermediate sequences.
+      - Filepaths in the scripts need to be updated accordingly.
