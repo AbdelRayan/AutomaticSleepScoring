@@ -3,17 +3,17 @@
 ## Preprocessing
 - **Performed by:** `preprocessing_sleep_sequences.R`
   - **Input File:**  
-    `string_analysis_hypno_latencies_tonic_phasic.xlsx`
-  - **Functionality:**
+    - `string_analysis_hypno_latencies_tonic_phasic.xlsx`
     - Contains sleep sequences and other recording information.
+  - **Functionality:**
     - Preprocesses the data.
     - Creates a separate file for each REM-included sequence.
     - Saves these files in a designated folder (path modifiable in the script).
 
 ## SleepInvestigatoR
 - **Input:**
-  - Location of the preprocessing script's output folder.
-  - Update the filepath in the `SleepInvestigatoR` script.
+  - Location of the preprocessing script's output folder containing the sleep sequences.
+    - Update the filepath in the `SleepInvestigatoR` script.
 - **Usage:**
   - Run the `SleepInvestigatoR` function in preferred R environment to initialize the function as a variable.
   - Afterwards, call `SleepInvestigatoR` with the input on the next page of this document.
