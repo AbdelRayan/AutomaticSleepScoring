@@ -51,3 +51,6 @@
   - Once for REM sequences.
   - Once for Phasic, Tonic, and Intermediate sequences.
 - Filepaths in the scripts need to be updated accordingly.
+
+# Flowchart showing the data path
+![SleepInvestigatoR Pipeline](code_guide_flowchart.png)
