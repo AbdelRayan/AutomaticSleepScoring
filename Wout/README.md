@@ -80,7 +80,7 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
 
 ---
 
-## Markov Chain Analyses
+## Markov Chain Analysis
 
 ### Input File
 - `string_analysis_hypno_latencies_tonic_phasic.xlsx`
