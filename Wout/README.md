@@ -4,7 +4,7 @@
 
 ### Preprocessing
 - **Performed by:** `preprocessing_sleep_sequences.R`
-  - **Input File:**  
+  - **Input:**  
     - `string_analysis_hypno_latencies_tonic_phasic.xlsx`
     - Contains sleep sequences and other recording information.
   - **Functionality:**
@@ -68,8 +68,8 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
 
 ### Visualization
 - **Performed by:** `SleepInvestigatoR_data_plotting.ipynb`
-  - **Input:**  
-    `SleepInvestigatoR_output_table.xlsx`
+  - **Input:**
+    - `SleepInvestigatoR_output_table.xlsx`
   - **Processing:**
     - Reads the file once and creates a dataframe of it.
     - Extracts necessary features for visualization per subscript.
