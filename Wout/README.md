@@ -96,6 +96,6 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
     - Filepaths in the scripts need to be updated accordingly.
 
 ## Flowchart dataflow
-![SleepInvestigatoR Pipeline](code_guide_flowchart.png)
+![SleepInvestigatoR Pipeline](data_flow_flowchart.png)
 
 *Flowchart illustrating the data flow and script execution order. Blue elements represent input folders or files, while yellow elements denote scripts. The branches correspond to different analyses: the left branch shows first-order Markov chains, the middle represents the SleepInvestigatoR analysis, and the right branch depicts second-order Markov chains.*
