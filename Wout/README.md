@@ -1,5 +1,12 @@
 # Cannabidiol and Regulators of G protein Signaling effect on the sleep architecture in rats
 
+
+## Flowchart dataflow
+![SleepInvestigatoR Pipeline](data_flow_flowchart.png)
+
+*Flowchart illustrating the data flow and script execution order. Blue elements represent input folders or files, while yellow elements denote scripts. The branches correspond to different analyses: the left branch shows first-order Markov chains, the middle represents the SleepInvestigatoR analysis, and the right branch depicts second-order Markov chains.*
+
+
 ## SleepInvestigatoR Analysis
 
 ### Preprocessing
@@ -94,8 +101,3 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
   - Once for REM sequences.
   - Once for Phasic, Tonic, and Intermediate sequences.
     - Filepaths in the scripts need to be updated accordingly.
-
-## Flowchart dataflow
-![SleepInvestigatoR Pipeline](data_flow_flowchart.png)
-
-*Flowchart illustrating the data flow and script execution order. Blue elements represent input folders or files, while yellow elements denote scripts. The branches correspond to different analyses: the left branch shows first-order Markov chains, the middle represents the SleepInvestigatoR analysis, and the right branch depicts second-order Markov chains.*
