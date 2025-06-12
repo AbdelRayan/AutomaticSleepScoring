@@ -1,6 +1,8 @@
-# SleepInvestigatoR Analysis
+# Cannabidiol and Regulators of G protein Signaling effect on the sleep architecture in rats
 
-## Preprocessing
+## SleepInvestigatoR Analysis
+
+### Preprocessing
 - **Performed by:** `preprocessing_sleep_sequences.R`
   - **Input File:**  
     - `string_analysis_hypno_latencies_tonic_phasic.xlsx`
@@ -10,7 +12,7 @@
     - Creates a separate file for each REM-included sequence.
     - Saves these files in a designated folder (path modifiable in the script).
 
-## SleepInvestigatoR
+### SleepInvestigatoR
 - **Performed by:** `SleepInvestigatoR_V4.R`
   - **Input:**
     - Location of the preprocessing script's output folder containing the sleep sequences.
@@ -24,7 +26,7 @@
     - `SleepInvestigatoR_output_table.xlsx`
 
 
-### Example: Running `SleepInvestigatoR`
+#### Example: Running `SleepInvestigatoR`
 
 Use the code below to analyze your sleep data with `SleepInvestigatoR`. To run it with the parameters, manually select and copy the code below, don’t use the GitHub copy button (it inserts unwanted characters):
 
@@ -64,7 +66,7 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
 >  **Tip:** Make sure that the packages are installed and that your `FileNames` object is a list of valid file paths before calling this function.
 
 
-## Visualization
+### Visualization
 - **Performed by:** `SleepInvestigatoR_data_plotting.ipynb`
   - **Input:**  
     `SleepInvestigatoR_output_table.xlsx`
@@ -78,22 +80,22 @@ If parameters not clear check [SleepInvestigatoR on GitHub](https://github.com/m
 
 ---
 
-# Markov Chain Analyses
+## Markov Chain Analyses
 
-## Input File
+### Input File
 - `string_analysis_hypno_latencies_tonic_phasic.xlsx` (reused here)
 
-## Scripts
+### Scripts
 - `First-order_markov_chain.ipynb`
 - `Second-order_markov_chain.ipynb`
 
-## Processing
+### Processing
 - Each script reads the input file twice:
   - Once for REM sequences.
   - Once for Phasic, Tonic, and Intermediate sequences.
     - Filepaths in the scripts need to be updated accordingly.
 
-# Flowchart dataflow
+## Flowchart dataflow
 ![SleepInvestigatoR Pipeline](code_guide_flowchart.png)
 
 *Flowchart illustrating the data flow and script execution order. Blue elements represent input folders or files, while yellow elements denote scripts. The branches correspond to different analyses: the left branch shows first-order Markov chains, the middle represents the SleepInvestigatoR analysis, and the right branch depicts second-order Markov chains.*
