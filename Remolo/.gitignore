@@ -1,2 +1,6 @@
 data/
+foof_results/
 *.mat
+*.csv
+bulk_foof.py
+csv_outputs/
