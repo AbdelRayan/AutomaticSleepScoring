@@ -1,4 +1,4 @@
-# Rodent Sleep Feature Table Builder for Complexity Analysis
+# Rodent Sleep Feature Table Pipeline
 
 This repository provides a pipeline to:
 
@@ -10,7 +10,7 @@ This repository provides a pipeline to:
    - Complexity features (aperiodic exponent, DFA, MSE)
 
 ## Repository Structure: 
-.
+.    \
 ├── dataset_loader/     \
 │ ├── init.py       \
 │ ├── loader.py # Scans dataset directory and builds a dataset map     \
@@ -40,3 +40,4 @@ Each dataset has a config file (YAML). Open the one you want (e.g. configs/confi
 ```
 Path: "D:/Path/To/Your/Dataset"
 ```
+
