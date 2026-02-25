@@ -1,0 +1,6 @@
+RGS:
+  path: "D:/Projects/Donders Project/Dataset/RGS14"
+  posttrial: ".*Post[_-]Trial\\d+$"
+  hpc: "*HPC*continuous*"
+  pfc: "*PFC_100*"
+  states: "*-states*"

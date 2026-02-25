@@ -1,0 +1,6 @@
+OS:
+  path: "D:/Projects/Donders Project/Dataset/OSBasic"
+  posttrial: ".*post_trial.*"
+  hpc: "*HPC*continuous*"
+  pfc: "*PFC_100*"
+  states: "*-states*"

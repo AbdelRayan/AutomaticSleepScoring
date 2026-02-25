@@ -1,0 +1,6 @@
+CBD:
+  path: "D:/Projects/Donders Project/Dataset/CBD"
+  posttrial: ".*posttrial\\d+$"
+  hpc: "*HPC*continuous*"
+  pfc: "*PFC_100*"
+  states: "*-states*"
